@@ -1,0 +1,31 @@
+
+<?php 
+$url = 'https://www.lifewire.com/thmb/HJGhcQRWDcwG906mCE1-y3C3OTE=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/Mario_Luigi_Wallpaper_screenshot-59b77f1b396e5a00103bdd39.jpg'; //Enter the link you want to download
+  
+
+$ch = curl_init($url); //Begin a new curl session
+  
+
+$dir = ''; //Enter the location directory 
+  
+
+$file_name = basename($url); //Return the base name of the URL
+  
+
+$save_file_loc = $dir . $file_name; //Save the file into the specified location
+  
+$fp = fopen($save_file_loc, 'wb'); //Open the saved file
+  
+// Set an option for a cURL transfer 
+curl_setopt($ch, CURLOPT_FILE, $fp); 
+curl_setopt($ch, CURLOPT_HEADER, 0); 
+  
+
+curl_exec($ch); //Execute the curl session
+  
+
+curl_close($ch); //Close the curl session
+  
+fclose($fp); //Close the file
+  
+?> 
